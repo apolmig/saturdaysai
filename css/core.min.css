@@ -2231,7 +2231,7 @@ button.small {
 .button.medium,
 button.medium {
   padding: 1.3rem 2.5rem !important;
-  font-size: 1.6rem !important;
+  font-size: 1.6rem;
 }
 .button-large .button,
 .button-large button {
