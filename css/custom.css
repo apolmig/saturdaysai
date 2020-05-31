@@ -19,7 +19,9 @@
 .color-gray {
   color: #e4e7eb !important;
 }
-
+.m-f-size {
+  font-size: 1.6rem !important;
+}
 .size-2-4 {
   font-size: 2.4rem !important;
 }
@@ -231,6 +233,9 @@
 }
 
 @media (max-width: 426px) {
+  .m-f-size {
+    font-size: 1.3rem !important;
+  }
   .hero-5 .media-column,
   .hero-slider .tms-slide > .media-column {
     background-size: contain;
@@ -266,6 +271,9 @@
   }
 }
 @media (max-width: 321px) {
+  .m-f-size {
+    font-size: 1.1rem !important;
+  }
   #find-your-city .thumbnail > a,
   .thumbnail > span {
     left: 16px;
