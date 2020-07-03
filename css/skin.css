@@ -2594,6 +2594,18 @@ body,
 .hero-5-2-30 .media-column{ /*SEVILLA*/
 	background-image: url(../images/saturdays/Sevilla-Cartel.png);
 }
+.hero-5-2-31 .media-column{ /*ASTURIAS*/
+	background-image: url(../images/saturdays/Mapa_Latam.png);
+}
+.hero-5-2-32 .media-column{ /*ASTURIAS*/
+	background-image: url(../images/saturdays/Beneficios-LATAM.png);
+}
+.hero-5-2-33 .media-column{ /*ASTURIAS*/
+	background-image: url(../images/saturdays/Programa-Latam.png);
+}
+.hero-5-2-34 .media-column{ /*ASTURIAS*/
+	background-image: url(../images/SaturdaysAI_logo_vertical.png);
+}
 
 
 /* @media (max-width:768px){
