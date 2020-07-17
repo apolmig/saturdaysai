@@ -371,3 +371,33 @@
   color: #ff7f00 !important;
 }
 /*-----------------END CITIES PAGE--------------------*/
+
+/*------------------Edicion LATAM---------------------*/
+
+@media only screen and (max-width: 768px) {
+  .hero-5.show-media-column-on-mobile .media-column,
+  .hero-5.show-media-column-on-mobile .media-column iframe,
+  .hero-5.show-media-column-on-mobile .media-column video {
+    height: 55rem;
+  }
+}
+@media only screen and (max-width: 426px) {
+  .hero-5.show-media-column-on-mobile .media-column,
+  .hero-5.show-media-column-on-mobile .media-column iframe,
+  .hero-5.show-media-column-on-mobile .media-column video {
+    height: 63rem;
+  }
+  .pad-sides {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .no-mt {
+    margin-top: 0 !important;
+  }
+  .button.medium,
+  button.medium {
+    padding: 1.3rem 1rem !important;
+    font-size: 1.6rem;
+  }
+}
+/*------------------Edicion LATAM---------------------*/
