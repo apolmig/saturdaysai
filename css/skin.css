@@ -2612,6 +2612,18 @@ body,
 .hero-5-2-36 .media-column{ /*MADRID*/
 	background-image: url(../images/saturdays/bcn.jpg);
 }
+.hero-5-2-37 .media-column{ /*ASTURIAS*/
+	background-image: url(../images/saturdays/Mapa_SaturdaysAI.png);
+}
+.hero-5-2-38 .media-column{ /*ASTURIAS*/
+	background-image: url(../images/saturdays/Formulario-Onboarding.png);
+}
+.hero-5-2-39 .media-column{ /*ASTURIAS*/
+	background-image: url(../images/saturdays/Eduflow-Onboarding.png);
+}
+.hero-5-2-40 .media-column{ /*ASTURIAS*/
+	background-image: url(../images/saturdays/Call-Onboarding.png);
+}
 
 /* @media (max-width:768px){
 	.hero-5-2-1 .media-column{
