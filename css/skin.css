@@ -2609,7 +2609,9 @@ body,
 .hero-5-2-35 .media-column{
 	background-image: url(../images/imagenpodcast.jpg);
 }
-
+.hero-5-2-36 .media-column{ /*MADRID*/
+	background-image: url(../images/saturdays/bcn.jpg);
+}
 
 /* @media (max-width:768px){
 	.hero-5-2-1 .media-column{
