@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {
+  background-color: #1F2933;
+}
+  
+
+.header img {
+  float: left;
+  width: 200px;
+  height: 50px;
+}
+
+.textheader {
+
+position: relative;
+  top: 5px;
+  left: 10px;
+
+}
+
+
+.header h1 {
+  position: relative;
+  top: 5px;
+  left: 10px;
+  color: white;
+  font-family: 'Hind Madurai', 'Helvetica Neue', sans-serif;
+  letter-spacing: 0;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.8;
+}  
+
+
+a {
+
+color: white;
+text-decoration: none;
+
+  font-family: 'Hind Madurai', 'Helvetica Neue', sans-serif;
+  letter-spacing: 0;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.8;
+
+}
+
+
+.filterDiv {
+  float: left;
+  width: 24%;
+  line-height: 100px;
+  text-align: center;
+  margin: 2px;
+  display: none;
+  background-color: #3e4f61;
+
+}
+
+
+.filterDiv:hover {
+  background-color: #ffa500;
+}
+
+.show {
+  display: block;
+}
+
+.container {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+.myBtnContainer {
+
+  margin-top: 200px;
+  overflow: hidden;
+
+
+}
+
+.badge{
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 3px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.badge-light{
+
+
+    color: #495057;
+    background-color: #f8f9fa;
+}
+
+.badge{
+  border-radius: 7px!important;
+}
+
+
+.mr-1{
+  margin-right: .25rem!important;
+}
+.ai-badge{
+border: 1px solid #dde3e7;
+    color: #838282;
+    background-color: #fcfcfc;
+}
+
+
+label {
+
+
+  position: relative;
+  top: 5px;
+  left: 10px;
+  color: white;
+  font-family: 'Hind Madurai', 'Helvetica Neue', sans-serif;
+  letter-spacing: 0;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.8;
+  
+ 
+}
+
+select{
+  position: relative;
+  top: 2px;
+  left: 10px;
+ 
+}
+
+
+
+</style>
+<body>
+
+<div class="header">
+  <h1>
+    <div style="display:inline-block;vertical-align:top;">
+  <a href="https://www.saturdays.ai/">
+  <img src="img/logo.png" alt="logo" width="200" height="50"/>
+  </a>
+</div>
+  <div style="display:inline-block;" class="textheader">
+  Projects
+</div>
+</h1>
+</div>
+
+<label for="cars">Choose a city:</label>
+
+<select id="cars" onchange="changeFunc()">
+<option value="All">All</option>
+<option value="Alicante">Alicante</option>
+<option value="Barcelona">Barcelona</option>
+<option value="Costa Rica">Costa Rica</option>
+<option value="Guadalajara">Guadalajara</option>
+<option value="Guayaquil">Guayaquil</option>
+<option value="Hermosillo">Hermosillo</option>
+<option value="La Paz">La Paz</option>
+<option value="Madrid">Madrid</option>
+<option value="Monterrey">Monterrey</option>
+<option value="Quito">Quito</option>
+<option value="Santiago">Santiago</option>
+<option value="Sevilla">Sevilla</option>
+<option value="Tarragona">Tarragona</option>
+<option value="Valencia">Valencia</option>
+<option value="Mallorca">Mallorca</option>
+</select>
+
+<label for="yearproject">Year:</label>
+
+<select id="yearproject" onchange="changeFunc()">
+<option value="All">All</option>
+<option value="2019">2019</option>
+<option value="2020">2020</option>
+</select>
+
+<label for="ml">ML exercise:</label>
+
+<select id="ml" onchange="changeFunc()">
+  <option value="All">All</option>
+<option value="regresión">regresión</option>
+<option value="clasificación">clasificación</option>
+<option value="time series">time series</option>
+<option value="generativo">generativo</option>
+<option value="detección">detección</option>
+<option value="reglas">reglas</option>
+<option value="exploración">exploración</option>
+<option value="regresion">regresion</option>
+<option value="Generativo">Generativo</option>
+<option value="chatbot">chatbot</option>
+<option value="clustering">clustering</option>
+<option value="RL">RL</option>
+</select>
+
+
+<br></br>
+
+<div id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('All')">All</button>
+  <button class="btn" onclick="filterSelection('medio ambiente')">medio ambiente</button>
+  <button class="btn" onclick="filterSelection('salud')">salud</button>
+  <button class="btn" onclick="filterSelection('inmobiliaria')">inmobiliaria</button>
+  <button class="btn" onclick="filterSelection('sentimiento')">sentimiento</button>
+  <button class="btn" onclick="filterSelection('tráfico de red')">tráfico de red</button>
+  <button class="btn" onclick="filterSelection('energía')">energía</button>
+  <button class="btn" onclick="filterSelection('transporte')">transporte</button>
+  <button class="btn" onclick="filterSelection('comida')">comida</button>
+  <button class="btn" onclick="filterSelection('economía')">economía</button>
+  <button class="btn" onclick="filterSelection('drones')">drones</button>
+  <button class="btn" onclick="filterSelection('astronomia')">astronomia</button>
+  <button class="btn" onclick="filterSelection('robots')">robots</button>
+  <button class="btn" onclick="filterSelection('Posturas')">Posturas</button>
+  <button class="btn" onclick="filterSelection('seguridad')">seguridad</button>
+  <button class="btn" onclick="filterSelection('educación')">educación</button>
+  <button class="btn" onclick="filterSelection('ventas')">ventas</button>
+  <button class="btn" onclick="filterSelection('Leyes')">Leyes</button>
+  <button class="btn" onclick="filterSelection('posturas')">posturas</button>
+  <button class="btn" onclick="filterSelection('ciudades')">ciudades</button>
+  <button class="btn" onclick="filterSelection('espacio')">espacio</button>
+  <button class="btn" onclick="filterSelection('musica')">musica</button>
+  <button class="btn" onclick="filterSelection('información')">información</button>
+  <button class="btn" onclick="filterSelection('entretenimiento')">entretenimiento</button>
+  <button class="btn" onclick="filterSelection('publicidad')">publicidad</button>
+  <button class="btn" onclick="filterSelection('empleo')">empleo</button>
+</div>
+
+<div class="container">
+
+
+
+<div class="filterDiv medio ambiente"><a href=https://github.com/aireai/Aire-AI>aire-ai</a>
+<div><span  class="badge badge-light ai-badge mr-1">medio ambiente</span>
+<span  class="badge badge-light ai-badge mr-1">regresión</span>
+<span  class="badge badge-light ai-badge mr-1">Alicante</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/Dviejopomata/saturdays-hospital>ingreso en hospitales</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Alicante</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/Spisor/PancreasArtificial>pancreas artificial</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">regresión</span>
+<span  class="badge badge-light ai-badge mr-1">Alicante</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/jmbolarin/AI-Saturdays>enfermedades oculares</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Alicante</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv inmobiliaria"><a href=https://github.com/tmgrupoinmobiliario/sales-prediction-ml>compraventa vivienda</a>
+<div><span  class="badge badge-light ai-badge mr-1">inmobiliaria</span>
+<span  class="badge badge-light ai-badge mr-1">regresión</span>
+<span  class="badge badge-light ai-badge mr-1">Alicante</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv sentimiento"><a href=https://github.com/DanielOrtegaConesa/Tweetments>sentimientos twitter</a>
+<div><span  class="badge badge-light ai-badge mr-1">sentimiento</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Alicante</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv tráfico de red"><a href=https://colab.research.google.com/drive/1PtTCdKnid0AiT_wM3ob4y2s1giqwPdpC>Cyberattack defense</a>
+<div><span  class="badge badge-light ai-badge mr-1">tráfico de red</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Alicante</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv energía"><a href=https://github.com/JuanManC/SaturdayAIProject>Paneles solares</a>
+<div><span  class="badge badge-light ai-badge mr-1">energía</span>
+<span  class="badge badge-light ai-badge mr-1">time series</span>
+<span  class="badge badge-light ai-badge mr-1">Alicante</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/danielcanueto/Adversarial_Autoencoder>Psiquiatric Diagnosis</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">generativo</span>
+<span  class="badge badge-light ai-badge mr-1">Barcelona</span>
+<span  class="badge badge-light ai-badge mr-1">2018</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/razielar/CNN-for-detecting-Lung-Nodules>Lung Nodules</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Barcelona</span>
+<span  class="badge badge-light ai-badge mr-1">2018</span>
+</div></div>
+
+<div class="filterDiv transporte"><a href=https://github.com/Giffy/AI_CarCrashDetector>accidentes de tráfico</a>
+<div><span  class="badge badge-light ai-badge mr-1">transporte</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Barcelona</span>
+<span  class="badge badge-light ai-badge mr-1">2018</span>
+</div></div>
+
+<div class="filterDiv comida"><a href=nan>ML Compra alimentos</a>
+<div><span  class="badge badge-light ai-badge mr-1">comida</span>
+<span  class="badge badge-light ai-badge mr-1">detección</span>
+<span  class="badge badge-light ai-badge mr-1">Barcelona</span>
+<span  class="badge badge-light ai-badge mr-1">2018</span>
+</div></div>
+
+<div class="filterDiv economía"><a href=https://github.com/albertsl/support-resistance_trading-bot>trading bots</a>
+<div><span  class="badge badge-light ai-badge mr-1">economía</span>
+<span  class="badge badge-light ai-badge mr-1">time series</span>
+<span  class="badge badge-light ai-badge mr-1">Barcelona</span>
+<span  class="badge badge-light ai-badge mr-1">2018</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/Homeralf/febrile-neutropenia>febrile neutroprenia</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Barcelona</span>
+<span  class="badge badge-light ai-badge mr-1">2018</span>
+</div></div>
+
+<div class="filterDiv sentimiento"><a href=nan>Bias Autocorrector</a>
+<div><span  class="badge badge-light ai-badge mr-1">sentimiento</span>
+<span  class="badge badge-light ai-badge mr-1">detección</span>
+<span  class="badge badge-light ai-badge mr-1">Barcelona</span>
+<span  class="badge badge-light ai-badge mr-1">2018</span>
+</div></div>
+
+<div class="filterDiv drones"><a href=nan>Swarm indoor drone ecosystem</a>
+<div><span  class="badge badge-light ai-badge mr-1">drones</span>
+<span  class="badge badge-light ai-badge mr-1">detección</span>
+<span  class="badge badge-light ai-badge mr-1">Barcelona</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv astronomia"><a href=nan>ML 4 Astronomy</a>
+<div><span  class="badge badge-light ai-badge mr-1">astronomia</span>
+<span  class="badge badge-light ai-badge mr-1">regresión</span>
+<span  class="badge badge-light ai-badge mr-1">Barcelona</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv robots"><a href=https://medium.com/saturdays-ai/kaggle-careercon-2019-competition-report-121-of-1449-top-9-21a1b7901af7>Kaggle competition</a>
+<div><span  class="badge badge-light ai-badge mr-1">robots</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Barcelona</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv nan"><a href=nan>style transfer for comics</a>
+<div><span  class="badge badge-light ai-badge mr-1">nan</span>
+<span  class="badge badge-light ai-badge mr-1">nan</span>
+<span  class="badge badge-light ai-badge mr-1">Barcelona</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv economía"><a href=nan>price prediction</a>
+<div><span  class="badge badge-light ai-badge mr-1">economía</span>
+<span  class="badge badge-light ai-badge mr-1">regresión</span>
+<span  class="badge badge-light ai-badge mr-1">Barcelona</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv sentimiento"><a href=nan>comment toxicity</a>
+<div><span  class="badge badge-light ai-badge mr-1">sentimiento</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Barcelona</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=nan>dialysis prediction</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Barcelona</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/saturdaysaicr/Projects/tree/master/2019_November/Breast_Cancer>cancer de mama</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Costa Rica</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv medio ambiente"><a href=https://github.com/SaturdaysAI/Projects/tree/master/CostaRica/Eco_Box_Garbage_Clasification>ecobox</a>
+<div><span  class="badge badge-light ai-badge mr-1">medio ambiente</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Costa Rica</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv Posturas"><a href=https://github.com/SaturdaysAI/Projects/tree/master/CostaRica/Gesture_detection>hand gesture</a>
+<div><span  class="badge badge-light ai-badge mr-1">Posturas</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Costa Rica</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv Posturas"><a href=https://github.com/SaturdaysAI/Projects/tree/master/CostaRica/GYM_Assistant>asistente gimnasio</a>
+<div><span  class="badge badge-light ai-badge mr-1">Posturas</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Costa Rica</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv seguridad"><a href=https://github.com/SaturdaysAI/Projects/tree/master/CostaRica/Vehicle_theft_Prediction>predicción robos</a>
+<div><span  class="badge badge-light ai-badge mr-1">seguridad</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Costa Rica</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv transporte"><a href=https://bitbucket.org/PattPatt/saturdaysai_projectteam1/src/master/>road congestion</a>
+<div><span  class="badge badge-light ai-badge mr-1">transporte</span>
+<span  class="badge badge-light ai-badge mr-1">regresión</span>
+<span  class="badge badge-light ai-badge mr-1">Guadalajara</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv educación"><a href=https://github.com/marcos862/SaturdaysAI_Project_T2>school dropout</a>
+<div><span  class="badge badge-light ai-badge mr-1">educación</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Guadalajara</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/RodCaba/SAI-E3-HEART/>heart attack early detection</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Guadalajara</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv educación"><a href=https://github.com/ricnef2121/ceneval>Tasa aprobados EGEL</a>
+<div><span  class="badge badge-light ai-badge mr-1">educación</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Guadalajara</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/gustavosantoscoy/saturdays.ai>melanoma</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Guadalajara</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv seguridad"><a href=https://github.com/Neli-Torres/EQUIPO-6-SECURITY>Missing people</a>
+<div><span  class="badge badge-light ai-badge mr-1">seguridad</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Guadalajara</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv economía"><a href=https://github.com/E7SATAI/wageForcasterMx>wage forecaster</a>
+<div><span  class="badge badge-light ai-badge mr-1">economía</span>
+<span  class="badge badge-light ai-badge mr-1">regresión</span>
+<span  class="badge badge-light ai-badge mr-1">Guadalajara</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv comida"><a href=https://github.com/ineszetter/AvocadoCNN>avocadroid</a>
+<div><span  class="badge badge-light ai-badge mr-1">comida</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Guadalajara</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv sentimiento"><a href=nan>detección sentimiento voz</a>
+<div><span  class="badge badge-light ai-badge mr-1">sentimiento</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Guayaquil</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/SaturdaysAI/Projects/tree/master/Guayaquil/Diabetes>diabetes retina</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Guayaquil</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv economía"><a href=https://github.com/soriaster/fraude_bancario>fraude bancario</a>
+<div><span  class="badge badge-light ai-badge mr-1">economía</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Guayaquil</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv sentimiento"><a href=https://github.com/SaturdaysAI/Projects/tree/master/Guayaquil/Machismo_Socialmedia>sentimiento redes sociales</a>
+<div><span  class="badge badge-light ai-badge mr-1">sentimiento</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Guayaquil</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv medio ambiente"><a href=https://github.com/SaturdaysAI/Projects/tree/master/Guayaquil/Sismos>predicción seísmos</a>
+<div><span  class="badge badge-light ai-badge mr-1">medio ambiente</span>
+<span  class="badge badge-light ai-badge mr-1">regresión</span>
+<span  class="badge badge-light ai-badge mr-1">Guayaquil</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/SaturdaysAI/Projects/tree/master/Guayaquil/SomnoDriver>Somnolencia al volante</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">reglas</span>
+<span  class="badge badge-light ai-badge mr-1">Guayaquil</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv seguridad"><a href=https://github.com/DiaDeMuertos/crime>Predicción de criminalidad</a>
+<div><span  class="badge badge-light ai-badge mr-1">seguridad</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Hermosillo</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv nan"><a href=nan>rl trader</a>
+<div><span  class="badge badge-light ai-badge mr-1">nan</span>
+<span  class="badge badge-light ai-badge mr-1">nan</span>
+<span  class="badge badge-light ai-badge mr-1">Hermosillo</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv seguridad"><a href=https://github.com/SaturdaysAI-HMO/ProyectosHMO/tree/master/Faltas%20Administrativas%20Hermosillo>Faltas administrativas</a>
+<div><span  class="badge badge-light ai-badge mr-1">seguridad</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Hermosillo</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv seguridad"><a href=https://github.com/SaturdaysAI/Projects/tree/master/Hermosillo>Servicio Bomberos</a>
+<div><span  class="badge badge-light ai-badge mr-1">seguridad</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Hermosillo</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv ventas"><a href=nan>Crimen</a>
+<div><span  class="badge badge-light ai-badge mr-1">ventas</span>
+<span  class="badge badge-light ai-badge mr-1">exploración</span>
+<span  class="badge badge-light ai-badge mr-1">Hermosillo</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv seguridad"><a href=https://github.com/SaturdaysAI/Projects/tree/master/Lapaz/Proyecto_1>Predicción feminicida</a>
+<div><span  class="badge badge-light ai-badge mr-1">seguridad</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">La Paz</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv inmobiliaria"><a href=https://github.com/SaturdaysAI/Projects/tree/master/Lapaz/Proyecto_2>calculadora inmobiliaria</a>
+<div><span  class="badge badge-light ai-badge mr-1">inmobiliaria</span>
+<span  class="badge badge-light ai-badge mr-1">regresion</span>
+<span  class="badge badge-light ai-badge mr-1">La Paz</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv seguridad"><a href=https://github.com/SaturdaysAI/Projects/tree/master/Lapaz/Proyecto_3>Violencia hacia la mujer</a>
+<div><span  class="badge badge-light ai-badge mr-1">seguridad</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">La Paz</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/SaturdaysAI/Projects/tree/master/Lapaz/Proyecto_4>renopatía diabética</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">La Paz</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv medio ambiente"><a href=https://github.com/SaturdaysAI/Projects/tree/master/Lapaz/Proyecto_5>calidad del aire</a>
+<div><span  class="badge badge-light ai-badge mr-1">medio ambiente</span>
+<span  class="badge badge-light ai-badge mr-1">nan</span>
+<span  class="badge badge-light ai-badge mr-1">La Paz</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv seguridad"><a href=https://github.com/SaturdaysAI/Projects/tree/master/Lapaz/Proyecto_6>Maltrato animal</a>
+<div><span  class="badge badge-light ai-badge mr-1">seguridad</span>
+<span  class="badge badge-light ai-badge mr-1">nan</span>
+<span  class="badge badge-light ai-badge mr-1">La Paz</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/pcuenca/alzheimer>Early Alzheimer</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Madrid</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv medio ambiente"><a href=https://github.com/whereisthepollution>Pollution</a>
+<div><span  class="badge badge-light ai-badge mr-1">medio ambiente</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Madrid</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv Leyes"><a href=https://github.com/Lawlesscodelen/boeanalytics>BOE</a>
+<div><span  class="badge badge-light ai-badge mr-1">Leyes</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Madrid</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv posturas"><a href=https://github.com/estelabalboa/Proyecto_Final_Pilates>Healthy pose</a>
+<div><span  class="badge badge-light ai-badge mr-1">posturas</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Madrid</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv sentimiento"><a href=https://github.com/Deurru/AISaturdaysProject>Toxic comments</a>
+<div><span  class="badge badge-light ai-badge mr-1">sentimiento</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Madrid</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv Leyes"><a href=nan>Guard</a>
+<div><span  class="badge badge-light ai-badge mr-1">Leyes</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Madrid</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv ciudades"><a href=https://github.com/illpack/dcgan_cities>City Generator</a>
+<div><span  class="badge badge-light ai-badge mr-1">ciudades</span>
+<span  class="badge badge-light ai-badge mr-1">Generativo</span>
+<span  class="badge badge-light ai-badge mr-1">Madrid</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv educación"><a href=https://github.com/bookanimation/bookanimation>Book animation</a>
+<div><span  class="badge badge-light ai-badge mr-1">educación</span>
+<span  class="badge badge-light ai-badge mr-1">Generativo</span>
+<span  class="badge badge-light ai-badge mr-1">Madrid</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv nan"><a href=https://github.com/mgonzalezalted/SaturdaysAI_NLP>NLVR</a>
+<div><span  class="badge badge-light ai-badge mr-1">nan</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Madrid</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv inmobiliaria"><a href=nan>Archillucinations</a>
+<div><span  class="badge badge-light ai-badge mr-1">inmobiliaria</span>
+<span  class="badge badge-light ai-badge mr-1">Generativo</span>
+<span  class="badge badge-light ai-badge mr-1">Madrid</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/poziryna84/Dr_Cervantes_AI_Saturday_Madrid>Dr Cervantes</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Madrid</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv inmobiliaria"><a href=nan>Homefindr</a>
+<div><span  class="badge badge-light ai-badge mr-1">inmobiliaria</span>
+<span  class="badge badge-light ai-badge mr-1">regresión</span>
+<span  class="badge badge-light ai-badge mr-1">Madrid</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv espacio"><a href=https://github.com/ebasanez/exonet>Exoplaneta</a>
+<div><span  class="badge badge-light ai-badge mr-1">espacio</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Madrid</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/algadoc/AneurAI-AISaturdays-Madrid>Aneurisma</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Madrid</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/ProyectoMSAI/Melanoma_Recognizer/>Melanoma</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Madrid</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/Jango-ai/EEG_epilepsia/tree/master>Epilepsia</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Madrid</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv energía"><a href=https://github.com/aicitymaps/somvra>Somvra</a>
+<div><span  class="badge badge-light ai-badge mr-1">energía</span>
+<span  class="badge badge-light ai-badge mr-1">exploración</span>
+<span  class="badge badge-light ai-badge mr-1">Madrid</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv nan"><a href=nan>trAIvel</a>
+<div><span  class="badge badge-light ai-badge mr-1">nan</span>
+<span  class="badge badge-light ai-badge mr-1">nan</span>
+<span  class="badge badge-light ai-badge mr-1">Madrid</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv musica"><a href=https://github.com/brainmusic>brainmusic</a>
+<div><span  class="badge badge-light ai-badge mr-1">musica</span>
+<span  class="badge badge-light ai-badge mr-1">generativo</span>
+<span  class="badge badge-light ai-badge mr-1">Madrid</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv transporte"><a href=https://github.com/ravyoli314/EMT-project/>Bicimad</a>
+<div><span  class="badge badge-light ai-badge mr-1">transporte</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Madrid</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv medio ambiente"><a href=https://github.com/alejandragza/SaturdaysAI_agua/>agua</a>
+<div><span  class="badge badge-light ai-badge mr-1">medio ambiente</span>
+<span  class="badge badge-light ai-badge mr-1">regresión</span>
+<span  class="badge badge-light ai-badge mr-1">Monterrey</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv seguridad"><a href=https://github.com/berenicehdr/SaturdaysAI_Fem>Feminicidios</a>
+<div><span  class="badge badge-light ai-badge mr-1">seguridad</span>
+<span  class="badge badge-light ai-badge mr-1">regresión</span>
+<span  class="badge badge-light ai-badge mr-1">Monterrey</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv información"><a href=https://github.com/StavroK/MtySaturdayAI2020>Fake news</a>
+<div><span  class="badge badge-light ai-badge mr-1">información</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Monterrey</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv transporte"><a href=https://github.com/rodolfobetanzos/SaturdaysAI>tráfico</a>
+<div><span  class="badge badge-light ai-badge mr-1">transporte</span>
+<span  class="badge badge-light ai-badge mr-1">regresión</span>
+<span  class="badge badge-light ai-badge mr-1">Monterrey</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv entretenimiento"><a href=https://github.com/ArnoldoOliva/Proyecto_SaturdaysAI>Goles</a>
+<div><span  class="badge badge-light ai-badge mr-1">entretenimiento</span>
+<span  class="badge badge-light ai-badge mr-1">regresión</span>
+<span  class="badge badge-light ai-badge mr-1">Monterrey</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv entretenimiento"><a href=https://github.com/jesuss83/saturdaysAI20>Detección personajes</a>
+<div><span  class="badge badge-light ai-badge mr-1">entretenimiento</span>
+<span  class="badge badge-light ai-badge mr-1">detección</span>
+<span  class="badge badge-light ai-badge mr-1">Monterrey</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv publicidad"><a href=https://github.com/DirceoQA/00SaturdayAI_2020_AB>Predicción CPR</a>
+<div><span  class="badge badge-light ai-badge mr-1">publicidad</span>
+<span  class="badge badge-light ai-badge mr-1">regresión</span>
+<span  class="badge badge-light ai-badge mr-1">Monterrey</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv inmobiliaria"><a href=nan>Detección humedades</a>
+<div><span  class="badge badge-light ai-badge mr-1">inmobiliaria</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv seguridad"><a href=nan>Videosecurity</a>
+<div><span  class="badge badge-light ai-badge mr-1">seguridad</span>
+<span  class="badge badge-light ai-badge mr-1">detección</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv comida"><a href=nan>Plagas</a>
+<div><span  class="badge badge-light ai-badge mr-1">comida</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv medio ambiente"><a href=nan>sonido de pajaros</a>
+<div><span  class="badge badge-light ai-badge mr-1">medio ambiente</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv medio ambiente"><a href=nan>Incendios</a>
+<div><span  class="badge badge-light ai-badge mr-1">medio ambiente</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv transporte"><a href=nan>Reconocimiento de matriculas</a>
+<div><span  class="badge badge-light ai-badge mr-1">transporte</span>
+<span  class="badge badge-light ai-badge mr-1">detección</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=nan>Chatbot atención primaria</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">chatbot</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv publicidad"><a href=nan>Emotional marketing research</a>
+<div><span  class="badge badge-light ai-badge mr-1">publicidad</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv seguridad"><a href=nan>rutas seguras</a>
+<div><span  class="badge badge-light ai-badge mr-1">seguridad</span>
+<span  class="badge badge-light ai-badge mr-1">clustering</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv educación"><a href=nan>predicción ser</a>
+<div><span  class="badge badge-light ai-badge mr-1">educación</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv transporte"><a href=nan>Transporte urbano</a>
+<div><span  class="badge badge-light ai-badge mr-1">transporte</span>
+<span  class="badge badge-light ai-badge mr-1">regresión</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv transporte"><a href=nan>Smart traffic</a>
+<div><span  class="badge badge-light ai-badge mr-1">transporte</span>
+<span  class="badge badge-light ai-badge mr-1">RL</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv posturas"><a href=nan>Salud postural</a>
+<div><span  class="badge badge-light ai-badge mr-1">posturas</span>
+<span  class="badge badge-light ai-badge mr-1">detección</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv medio ambiente"><a href=https://github.com/mirelys/project-saturdays_AI>ecoapp</a>
+<div><span  class="badge badge-light ai-badge mr-1">medio ambiente</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Santiago</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv medio ambiente"><a href=https://github.com/soriaster/SID>información desastres</a>
+<div><span  class="badge badge-light ai-badge mr-1">medio ambiente</span>
+<span  class="badge badge-light ai-badge mr-1">detección</span>
+<span  class="badge badge-light ai-badge mr-1">Santiago</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=nan>autismo</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">nan</span>
+<span  class="badge badge-light ai-badge mr-1">Santiago</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv nan"><a href=nan>Demandas servicios de urgencia</a>
+<div><span  class="badge badge-light ai-badge mr-1">nan</span>
+<span  class="badge badge-light ai-badge mr-1">nan</span>
+<span  class="badge badge-light ai-badge mr-1">Santiago</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv nan"><a href=nan>batterIA</a>
+<div><span  class="badge badge-light ai-badge mr-1">nan</span>
+<span  class="badge badge-light ai-badge mr-1">nan</span>
+<span  class="badge badge-light ai-badge mr-1">Santiago</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv nan"><a href=nan>Ciberacoso</a>
+<div><span  class="badge badge-light ai-badge mr-1">nan</span>
+<span  class="badge badge-light ai-badge mr-1">nan</span>
+<span  class="badge badge-light ai-badge mr-1">Santiago</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv nan"><a href=nan>enfermedades raras</a>
+<div><span  class="badge badge-light ai-badge mr-1">nan</span>
+<span  class="badge badge-light ai-badge mr-1">nan</span>
+<span  class="badge badge-light ai-badge mr-1">Santiago</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/MrManlu/Cancer.Bot>Cancer bot</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Sevilla</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv posturas"><a href=https://github.com/ai-sign-language/app_sign_language>dactilogía</a>
+<div><span  class="badge badge-light ai-badge mr-1">posturas</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Sevilla</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv energía"><a href=https://github.com/joaqrus/EnergyDissagregation>Desagregación de energia</a>
+<div><span  class="badge badge-light ai-badge mr-1">energía</span>
+<span  class="badge badge-light ai-badge mr-1">regresión</span>
+<span  class="badge badge-light ai-badge mr-1">Sevilla</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv entretenimiento"><a href=nan>LEGO</a>
+<div><span  class="badge badge-light ai-badge mr-1">entretenimiento</span>
+<span  class="badge badge-light ai-badge mr-1">detección</span>
+<span  class="badge badge-light ai-badge mr-1">Sevilla</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=nan>Enfermedades cardíacas</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Sevilla</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv medio ambiente"><a href=nan>Predicción incendios</a>
+<div><span  class="badge badge-light ai-badge mr-1">medio ambiente</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Sevilla</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv medio ambiente"><a href=https://github.com/MaribelLuque/SaturdaysAI>Comportamiento incendios</a>
+<div><span  class="badge badge-light ai-badge mr-1">medio ambiente</span>
+<span  class="badge badge-light ai-badge mr-1">regresión</span>
+<span  class="badge badge-light ai-badge mr-1">Sevilla</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv seguridad"><a href=https://github.com/apolmig/sat4survive>Localizar barcos en el mar</a>
+<div><span  class="badge badge-light ai-badge mr-1">seguridad</span>
+<span  class="badge badge-light ai-badge mr-1">detección</span>
+<span  class="badge badge-light ai-badge mr-1">Tarragona</span>
+<span  class="badge badge-light ai-badge mr-1">2018</span>
+</div></div>
+
+<div class="filterDiv ciudades"><a href=https://github.com/sfrias/ai4smartcities>Smart cities</a>
+<div><span  class="badge badge-light ai-badge mr-1">ciudades</span>
+<span  class="badge badge-light ai-badge mr-1">clustering</span>
+<span  class="badge badge-light ai-badge mr-1">Tarragona</span>
+<span  class="badge badge-light ai-badge mr-1">2018</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/gerardp/project_ai>análisis de sangre</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Tarragona</span>
+<span  class="badge badge-light ai-badge mr-1">2018</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/apolmig/IcGAN>Helping homeless</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">generativo</span>
+<span  class="badge badge-light ai-badge mr-1">Tarragona</span>
+<span  class="badge badge-light ai-badge mr-1">2018</span>
+</div></div>
+
+<div class="filterDiv transporte"><a href=https://github.com/sfrias/place2plug>Lugar para enchufar coche eléctrico</a>
+<div><span  class="badge badge-light ai-badge mr-1">transporte</span>
+<span  class="badge badge-light ai-badge mr-1">regresión</span>
+<span  class="badge badge-light ai-badge mr-1">Tarragona</span>
+<span  class="badge badge-light ai-badge mr-1">2018</span>
+</div></div>
+
+<div class="filterDiv medio ambiente"><a href=https://github.com/SaturdaysAI/Projects/tree/master/Valencia/Equipo1-%C2%BFPodr%C3%A9%20ba%C3%B1arme%20en%20la%20Malvarrosa%20el%20a%C3%B1o%20que%20viene_>Predicción temporada de baño</a>
+<div><span  class="badge badge-light ai-badge mr-1">medio ambiente</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Valencia</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv transporte"><a href=https://github.com/SaturdaysAI/Projects/tree/master/Valencia/Equipo2-%20EMT_%20predecir%20la%20flota%20necesaria%20en%20un%20momento%20concreto>Predecir flota emt</a>
+<div><span  class="badge badge-light ai-badge mr-1">transporte</span>
+<span  class="badge badge-light ai-badge mr-1">nan</span>
+<span  class="badge badge-light ai-badge mr-1">Valencia</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv transporte"><a href=https://github.com/SaturdaysAI/Projects/tree/master/Valencia/Equipo3-IAmobilitat>Mobilidad</a>
+<div><span  class="badge badge-light ai-badge mr-1">transporte</span>
+<span  class="badge badge-light ai-badge mr-1">regresión</span>
+<span  class="badge badge-light ai-badge mr-1">Valencia</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv nan"><a href=https://github.com/SaturdaysAI/Projects/tree/master/Valencia/Equipo4%20-%20MANI>Detección caras</a>
+<div><span  class="badge badge-light ai-badge mr-1">nan</span>
+<span  class="badge badge-light ai-badge mr-1">detección</span>
+<span  class="badge badge-light ai-badge mr-1">Valencia</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/SaturdaysAI/Projects/tree/master/Valencia/Equipo5-DiagnosisLesionesPiel>Detección enfermedad piel</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Valencia</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv inmobiliaria"><a href=https://github.com/SaturdaysAI/Projects/tree/master/Valencia/Equipo6-%20%C2%BFPredecir%20una%20fuga%20de%20agua%20en%20tu%20casa_%20Preguntale%20a%20tu%20contador>Fugas en casa</a>
+<div><span  class="badge badge-light ai-badge mr-1">inmobiliaria</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Valencia</span>
+<span  class="badge badge-light ai-badge mr-1">2019</span>
+</div></div>
+
+<div class="filterDiv transporte"><a href=https://github.com/AI6-UIO/CHASKI-UIO>Conteo de pasajeros</a>
+<div><span  class="badge badge-light ai-badge mr-1">transporte</span>
+<span  class="badge badge-light ai-badge mr-1">detección</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv sentimiento"><a href=https://github.com/AI6-UIO/COVID-19-Twitter>COVID19 Twitter</a>
+<div><span  class="badge badge-light ai-badge mr-1">sentimiento</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv empleo"><a href=https://github.com/AI6-UIO/mapa-empleabilidad>Empleabilidad</a>
+<div><span  class="badge badge-light ai-badge mr-1">empleo</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv sentimiento"><a href=https://github.com/AI6-UIO/identificador-emociones-AI>Identificador de emociones</a>
+<div><span  class="badge badge-light ai-badge mr-1">sentimiento</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv transporte"><a href=https://github.com/AI6-UIO/NAMPI>Selección de rutas</a>
+<div><span  class="badge badge-light ai-badge mr-1">transporte</span>
+<span  class="badge badge-light ai-badge mr-1">clustering</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv medio ambiente"><a href=https://github.com/AI6-UIO/derrames-petroleo>Derrames petroleo</a>
+<div><span  class="badge badge-light ai-badge mr-1">medio ambiente</span>
+<span  class="badge badge-light ai-badge mr-1">detección</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv seguridad"><a href=https://github.com/AI6-UIO/3D-COVID19>3d distanciamiento personas</a>
+<div><span  class="badge badge-light ai-badge mr-1">seguridad</span>
+<span  class="badge badge-light ai-badge mr-1">detección</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv ventas"><a href=https://github.com/AI6-UIO/asesor-moda-inteligente>Asesor de moda</a>
+<div><span  class="badge badge-light ai-badge mr-1">ventas</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/AI6-UIO/BSAC-COVID19>Busqueda de información sobre COVID</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/AI6-UIO/Galenus-AI>Comunicación médico-paciente</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">chatbot</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv comida"><a href=https://github.com/AI6-UIO/GG-EAT>Guia Gastronómica</a>
+<div><span  class="badge badge-light ai-badge mr-1">comida</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Quito</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv posturas"><a href=https://github.com/tonythree/hands-free-drone>eye motion drone control</a>
+<div><span  class="badge badge-light ai-badge mr-1">posturas</span>
+<span  class="badge badge-light ai-badge mr-1">detección</span>
+<span  class="badge badge-light ai-badge mr-1">Barcelona</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/azbit0/OrganDP>Organ donor prediction</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Guadalajara</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv seguridad"><a href=https://github.com/saturdaysai-gdl2-plata/datasets>Crime analysis bikers</a>
+<div><span  class="badge badge-light ai-badge mr-1">seguridad</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Guadalajara</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv medio ambiente"><a href=https://github.com/JacoboDB/AI.rbike>Air quality and bike use</a>
+<div><span  class="badge badge-light ai-badge mr-1">medio ambiente</span>
+<span  class="badge badge-light ai-badge mr-1">regresión</span>
+<span  class="badge badge-light ai-badge mr-1">Guadalajara</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/RebeNura/Saturdays.ai-Equipo-Naranja>Cardiovascular risk calculator</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Guadalajara</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv sentimiento"><a href=https://github.com/saturdays-equipo3/covid19>Emotional Tweets covid19</a>
+<div><span  class="badge badge-light ai-badge mr-1">sentimiento</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Guadalajara</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv seguridad"><a href=https://github.com/gmgalvan/fingerprintRecognition>Fingerprint recognition</a>
+<div><span  class="badge badge-light ai-badge mr-1">seguridad</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Guadalajara</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/luischitala/Hospitals-Nearb-AI-Me>Hospitals nearby me</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Guadalajara</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv sentimiento"><a href=https://github.com/omar-bracamontes-zavala/BlueTeam>Sentiment analysis</a>
+<div><span  class="badge badge-light ai-badge mr-1">sentimiento</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Guadalajara</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/Lordofthe0s/Prev_Asist>emergency assistance prediction in hospitals</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">regresión</span>
+<span  class="badge badge-light ai-badge mr-1">Mallorca</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv medio ambiente"><a href=https://github.com/michelangelocasablancas/ods>ODS detection in tweets</a>
+<div><span  class="badge badge-light ai-badge mr-1">medio ambiente</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Mallorca</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+<div class="filterDiv salud"><a href=https://github.com/DDani/saturdays.ai-stress>Work Stress</a>
+<div><span  class="badge badge-light ai-badge mr-1">salud</span>
+<span  class="badge badge-light ai-badge mr-1">clasificación</span>
+<span  class="badge badge-light ai-badge mr-1">Mallorca</span>
+<span  class="badge badge-light ai-badge mr-1">2020</span>
+</div></div>
+
+
+
+
+</div>
+
+<script>
+filterSelection("All")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("filterDiv");
+  var citySelected = document.getElementById("cars").value;
+  var mlSelected = document.getElementById("ml").value;
+  var yearSelected = document.getElementById("yearproject").value;
+  if (c == "All") c = "";
+  if (citySelected == "All") citySelected = "";
+  if (mlSelected == "All") mlSelected = "";
+  if (yearSelected == "All") yearSelected = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1  &&  x[i].getElementsByClassName("badge")[2].textContent.indexOf(citySelected) > -1 &&  x[i].getElementsByClassName("badge")[1].textContent.indexOf(mlSelected) > -1 &&  x[i].getElementsByClassName("badge")[3].textContent.indexOf(yearSelected) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function changeFunc() {
+  var activeClass = document.getElementsByClassName("active")[0].textContent;
+  filterSelection(activeClass);
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+</body>
