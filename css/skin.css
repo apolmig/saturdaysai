@@ -2627,6 +2627,21 @@ body,
 .hero-5-2-41 .media-column{
 	background-image: url(../images/imagenpodcastequipo.jpg);
 }
+.hero-5-2-42 .media-column{
+	background-image: url(../images/python.jpg);
+}
+.hero-5-2-43 .media-column{
+	background-image: url(../images/code2learn.jpg);
+}
+.hero-5-2-44 .media-column{
+	background-image: url(../images/build2learn.jpg);
+}
+.hero-5-2-45 .media-column{
+	background-image: url(../images/demoday.jpg);
+}
+.hero-5-2-46 .media-column{
+	background-image: url(../images/learning.png);
+}
 
 /* @media (max-width:768px){
 	.hero-5-2-1 .media-column{
