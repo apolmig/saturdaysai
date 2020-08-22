@@ -2654,6 +2654,12 @@ body,
 .hero-5-2-50 .media-column{
 	background-image: url(../images/ourmission.png);
 }
+.hero-5-2-51 .media-column{
+	background-image: url(../images/mlcurriculum.png);
+}
+.hero-5-2-52 .media-column{
+	background-image: url(../images/dlcurriculum.png);
+}
 /* @media (max-width:768px){
 	.hero-5-2-1 .media-column{
 		display: none !important;
