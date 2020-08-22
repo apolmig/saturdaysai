@@ -2642,7 +2642,18 @@ body,
 .hero-5-2-46 .media-column{
 	background-image: url(../images/learning.png);
 }
-
+.hero-5-2-47 .media-column{
+	background-image: url(../images/saturdays/09.jpg);
+}
+.hero-5-2-48 .media-column{
+	background-image: url(../images/partnersdata.png);
+}
+.hero-5-2-49 .media-column{
+	background-image: url(../images/imagenpartners.png);
+}
+.hero-5-2-50 .media-column{
+	background-image: url(../images/ourmission.png);
+}
 /* @media (max-width:768px){
 	.hero-5-2-1 .media-column{
 		display: none !important;
