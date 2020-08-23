@@ -2660,6 +2660,12 @@ body,
 .hero-5-2-52 .media-column{
 	background-image: url(../images/dlcurriculum.png);
 }
+.hero-5-2-53 .media-column{
+	background-image: url(../images/benefits.jpg);
+}
+.hero-5-2-54 .media-column{
+	background-image: url(../images/community.jpg);
+}
 /* @media (max-width:768px){
 	.hero-5-2-1 .media-column{
 		display: none !important;
