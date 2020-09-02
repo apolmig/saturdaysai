@@ -2669,6 +2669,12 @@ body,
 .hero-5-2-55 .media-column{
 	background-image: url(../images/nlpcurriculum.png);
 }
+.hero-5-2-56 .media-column{
+	background-image: url(../images/hypeai.jpg);
+}
+.hero-5-2-57 .media-column{
+	background-image: url(../images/pythontoai.png);
+}
 /* @media (max-width:768px){
 	.hero-5-2-1 .media-column{
 		display: none !important;
