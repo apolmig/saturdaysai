@@ -2684,6 +2684,15 @@ body,
 .hero-5-2-60 .media-column{ /*MADRID*/
 	background-image: url(../images/saturdays/cartel-tarragona.png);
 }
+.hero-5-2-61 .media-column{ /*MADRID*/
+	background-image: url(../images/saturdays/mauritius.jpg);
+}
+.hero-5-2-62 .media-column{ /*MADRID*/
+	background-image: url(../images/saturdays/mauritius-comunidad.jpg);
+}
+.hero-5-2-63 .media-column{ /*MADRID*/
+	background-image: url(../images/saturdays/cartel-mauritius.png);
+}
 /* @media (max-width:768px){
 	.hero-5-2-1 .media-column{
 		display: none !important;
