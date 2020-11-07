@@ -22,8 +22,11 @@
 .m-f-size {
   font-size: 1.6rem !important;
 }
-.size-2-4 {
+.size-2 {
   font-size: 2.4rem !important;
+}
+.size-3 {
+  font-size: 3rem !important;
 }
 
 .size-4 {
@@ -310,6 +313,7 @@
 
 .btn-width {
   width: 50% !important;
+  align-items: center;
 }
 
 @media (max-width: 426px) {
