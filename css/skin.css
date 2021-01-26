@@ -2675,13 +2675,13 @@ body,
 .hero-5-2-57 .media-column{
 	background-image: url(../images/pythontoai.png);
 }
-.hero-5-2-58 .media-column{ /*MADRID*/
+.hero-5-2-58 .media-column{ /*TGN*/
 	background-image: url(../images/saturdays/tarragona.jpg);
 }
-.hero-5-2-59 .media-column{ /*MADRID*/
+.hero-5-2-59 .media-column{ /*TGN*/
 	background-image: url(../images/saturdays/tarragona-comunidad.jpg);
 }
-.hero-5-2-60 .media-column{ /*MADRID*/
+.hero-5-2-60 .media-column{ /*TGN*/
 	background-image: url(../images/saturdays/cartel-tarragona.png);
 }
 .hero-5-2-61 .media-column{ /*MADRID*/
@@ -2692,6 +2692,18 @@ body,
 }
 .hero-5-2-63 .media-column{ /*MADRID*/
 	background-image: url(../images/saturdays/cartel-mauritius.png);
+}
+.hero-5-2-64 .media-column{ /*TGN*/
+	background-image: url(../images/saturdays/becas.png);
+}
+.hero-5-2-65 .media-column{ /*TGN*/
+	background-image: url(../images/saturdays/calendar.png);
+}
+.hero-5-2-66 .media-column{ /*TGN*/
+	background-image: url(../images/saturdays/checklist.png);
+}
+.hero-5-2-67 .media-column{ /*TGN*/
+	background-image: url(../images/saturdays/diploma.png);
 }
 /* @media (max-width:768px){
 	.hero-5-2-1 .media-column{
